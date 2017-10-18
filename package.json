@@ -1,6 +1,6 @@
 {
   "name": "@lernejaro/core",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Lernejaro",
   "main": "./bundles/core.umd.js",
   "module": "./core.es5.js",
