@@ -1,6 +1,6 @@
 {
   "name": "@lernejaro/core",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Lernejaro",
   "main": "./bundles/core.umd.js",
   "module": "./core.es5.js",
@@ -90,6 +90,7 @@
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-uglify": "^2.0.1",
     "rxjs": "^5.4.3",
+    "scss-bundle": "^2.1.0",
     "standard-version": "^4.2.0",
     "systemjs": "^0.20.18",
     "tslint": "^5.7.0",
