@@ -1,6 +1,6 @@
 {
   "name": "@lernejaro/core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Lernejaro",
   "main": "./bundles/core.umd.js",
   "module": "./core.es5.js",
@@ -40,6 +40,7 @@
     "integration:aot": "cd integration && npm run e2e:aot",
     "lint": "tslint .src/**/*.ts -t verbose",
     "release": "standard-version",
+    "release:quick": "npm run build && npm run release && npm run build && git push --follow-tags origin master && npm publish dist",
     "release:auto": "npm run build && npm run test:once && npm run release && npm run build && git push --follow-tags origin master && npm publish dist"
   },
   "peerDependencies": {
