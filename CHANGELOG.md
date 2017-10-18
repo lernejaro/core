@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.15"></a>
+## [0.1.15](https://github.com/lernejaro/core/compare/v0.1.14...v0.1.15) (2017-10-18)
+
+
+
 <a name="0.1.14"></a>
 ## [0.1.14](https://github.com/lernejaro/core/compare/v0.1.13...v0.1.14) (2017-10-18)
 
