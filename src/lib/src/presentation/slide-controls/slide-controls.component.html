@@ -1,0 +1,22 @@
+<nav>
+  <button (click)="first.emit()"><i class="fa fa-fast-backward"></i></button>
+  <button (click)="prev.emit()"><i class="fa fa-step-backward"></i></button>
+  <div class="slide-index">
+    <span class="current">{{ currentSlide }}</span>
+    /
+    <span class="total">{{ totalNumberOfSlides }}</span>
+  </div>
+  <button (click)="next.emit()"><i class="fa fa-step-forward"></i></button>
+  <button (click)="last.emit()"><i class="fa fa-fast-forward"></i></button>
+  <hr>
+  <button (click)="openPalette()">
+    <i class="fa fa-paint-brush"></i>
+  </button>
+  <button (click)="modal.open(toc)">
+    <i class="fa fa-bars"></i>
+  </button>
+</nav>
+
+<ng-template #toc>
+  <lrn-table-of-contents [tableOfContents]="tableOfContents"></lrn-table-of-contents>
+</ng-template>

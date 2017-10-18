@@ -1,0 +1,57 @@
+@import '../../global';
+
+.slide-inner {
+}
+
+.slide-inner {
+  width: 100%;
+  height: calc(100vh - #{$slide-header-height});
+  box-sizing: border-box;
+  font-size: 2.6em;
+  padding: 0.6em 1em;
+  color: var(--color-primary);
+
+  :first-child {
+    margin-top: 0;
+  }
+
+  :last-child {
+    margin-bottom: 0;
+  }
+
+  pre {
+    font-size: .8em;
+    line-height: 1.2;
+    padding: 1em;
+    overflow-y: auto;
+    @include card-basic;
+    color: var(--color-primary);
+
+    > code {
+      background-color: transparent !important;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 300px;
+    margin: auto;
+    display: flex;
+  }
+
+  code {
+    display: inline-block;
+    padding: .3ex .3em;
+    border-radius: 3px;
+    background-color: var(--color); // TODO .1
+  }
+
+  blockquote {
+    padding: 1em;
+    margin: 0;
+    @include card-basic;
+
+    p:first-child { margin-top: 0; }
+    p:last-child { margin-bottom: 0; }
+  }
+}

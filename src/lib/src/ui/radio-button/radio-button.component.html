@@ -1,0 +1,10 @@
+<label>
+  <input type="radio"
+         [name]="name"
+         [value]="value"
+         [ngModel]="currentValue"
+         (ngModelChange)="emitCurrentValueChange()"
+  >
+  <div class="input-type-radio" [class.selected]="isSelected"></div>
+  <span><ng-content></ng-content></span>
+</label>

@@ -1,0 +1,14 @@
+<ng-container *ngIf="header != null || cardHeader != null">
+  <ng-container *ngIf="cardHeader != null">
+    <ng-content select="lrn-card-header"></ng-content>
+  </ng-container>
+  <lrn-card-header *ngIf="cardHeader == null">
+    <h1>{{ header }}</h1>
+    <ng-content select="lrn-card-badge"></ng-content>
+  </lrn-card-header>
+</ng-container>
+
+<ng-content select="lrn-card-content"></ng-content>
+<ng-content></ng-content>
+
+<ng-content select="lrn-card-footer"></ng-content>

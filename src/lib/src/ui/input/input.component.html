@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <label [class.focus]="focus"
+         [class.overlay-label]="(value == '' || value == null) && !focus"
+  >
+    <input [type]="type"
+           [name]="name"
+           [step]="step"
+           [ngModel]="value | step : decimals"
+           (ngModelChange)="onChange($event)"
+           (focus)="onFocus()"
+           (blur)="onBlur()"
+    >
+    <span [class]="'underline ' + color"></span>
+    <span class="label"><span>{{label}}</span></span>
+  </label>
+</div>

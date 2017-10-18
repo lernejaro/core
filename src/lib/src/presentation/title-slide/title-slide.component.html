@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <div class="background-picture"
+       [style.background-image]="'url(' + backgroundImageUrl + ')'"
+  >
+    <div class="fade"></div>
+  </div>
+  <div class="background-card"></div>
+
+  <div class="content">
+    <div class="title-and-author">
+      <div class="title">
+        <ng-container *ngIf="typeOf(title) == 'string'">{{title}}</ng-container>
+        <ng-container *ngIf="typeOf(title) != 'string'">
+          <ng-template [ngTemplateOutlet]="title"></ng-template>
+        </ng-container>
+      </div>
+      <div class="author">
+        <ng-container *ngIf="typeOf(author) == 'string'">{{author}}</ng-container>
+        <ng-container *ngIf="typeOf(author) != 'string'">
+          <ng-template [ngTemplateOutlet]="author"></ng-template>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+</div>

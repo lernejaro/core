@@ -1,0 +1,8 @@
+<div [class.expanded]="isExpanded" class="visible">
+  <div class="icon" (click)="toggle()">
+    <span><i class="fa fa-cog"></i></span>
+  </div>
+  <div class="content">
+    <ng-content></ng-content>
+  </div>
+</div>

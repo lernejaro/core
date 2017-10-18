@@ -1,0 +1,50 @@
+@import '../../global';
+
+$padding-top: 1.2rem;
+$padding-left-right: 1rem;
+$padding-bottom: 1rem;
+
+lrn-card {
+  display: block;
+  background-color: var(--color-back);
+  @include z-depth-2dp;
+  border-radius: 3px;
+  overflow: hidden;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  > lrn-card-content,
+  > lrn-card-header,
+  > lrn-card-footer {
+    padding-left: $padding-left-right;
+    padding-right: $padding-left-right;
+  }
+
+  > lrn-card-header {
+    padding-top: $padding-top;
+  }
+
+  > lrn-card-footer {
+    padding-bottom: $padding-bottom;
+  }
+
+  // Zero or one
+  lrn-card-header {
+    border-bottom: 1px solid rgba(black, .06);
+  }
+
+  // One or more
+  lrn-card-content {
+
+    &:not(:last-of-type) {
+      border-bottom: 1px solid rgba(black, .06);
+    }
+  }
+
+  // Zero or one
+  lrn-card-footer {
+    border-top: 1px solid rgba(black, .06);
+  }
+}

@@ -1,0 +1,59 @@
+@import '../../global';
+
+:host {
+  display: block;
+
+  .content {
+    border-bottom: dashed 1px var(--color-status-bar);
+  }
+}
+
+.toggle-area {
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+  padding-top: 1em;
+  margin-top: -.5em;
+  overflow: hidden;
+
+  .heading {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    font-size: .66em;
+    font-style: italic;
+    opacity: .6;
+    transition: all .33s ease-out;
+  }
+
+  .line {
+    height: 0;
+    border-bottom: dashed 1px var(--color-status-bar);
+  }
+}
+
+:host([aria-expanded=true]),
+:host .toggle-area:hover {
+
+  .heading {
+    right: 50%;
+    transform: translateX(50%);
+    opacity: .8;
+    transition: all .33s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+}
+
+.content {
+  overflow: hidden;
+  font-size: .86em;
+  line-height: 1.6;
+
+  ::ng-deep p:first-child {
+    margin-top: .2em;
+  }
+
+  ::ng-deep p:last-child {
+    margin-bottom: .2em;
+  }
+}

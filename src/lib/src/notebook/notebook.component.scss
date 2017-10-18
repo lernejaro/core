@@ -1,0 +1,415 @@
+@import '../global';
+
+$header-height: 3em;
+
+body {
+  counter-reset: figureCounter;
+}
+
+lrn-notebook {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  color: var(--color-primary);
+  background-color: var(--color-back);
+
+  .table-of-content {
+    position: fixed;
+    z-index: 10;
+    top: $header-height + 1em;
+    left: 0;
+    bottom: 1em;
+    width: auto;
+    max-width: 33%;
+    @include z-depth-3dp;
+    padding: 1em;
+    padding-left: 2em;
+    margin-left: -1em;
+    border-radius: 4px;
+    background-color: var(--color-app-bar);
+    color: var(--color-primary);
+
+    &.hidden {
+      display: none;
+    }
+
+    @media (max-width: 50rem) {
+      margin-left: 0;
+      padding: 1em;
+      left: 1em;
+      right: 1em;
+      width: auto;
+      max-width: none;
+    }
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 0;
+    min-height: $header-height;
+    @include z-depth-2dp;
+    display: flex;
+    z-index: 10;
+    background-color: var(--color-app-bar);
+
+    .icon {
+      color: var(--color-back);
+    }
+
+    .buttons {
+
+      button {
+        color: var(--color);
+      }
+    }
+
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: $header-height;
+      background-color: var(--color); // TODO 500
+
+      > i {
+        font-size: 1.5em;
+      }
+    }
+
+    .title-and-subtitle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 1em;
+      font-weight: 300;
+
+      .title {
+        font-size: 1.5em;
+        color: var(--accent-color); // TODO 700
+      }
+    }
+
+    .flex-spacer {
+      flex: 1 0 0;
+    }
+
+    .buttons {
+      display: flex;
+
+      button {
+        @include button-reset;
+        width: $header-height * .5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        margin-right: $header-height * .5 * .5;
+
+        i {
+          padding-top: .33ex;
+        }
+      }
+    }
+  }
+
+  > article.wrapper {
+    padding-top: calc(#{$header-height} + #{1rem});
+    box-sizing: border-box;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    max-width: calc(35rem + 20vw);
+
+    // We don't need to display h1
+    > h1 {
+      display: none;
+    }
+
+    > h1 + summary {
+      border-top: solid 1px var(--color-dividers);
+      border-bottom: solid 1px var(--color-dividers);
+    }
+
+    > h1, > h2, > h3, > h4, > h5, > h6 {
+
+      button {
+        @include button-reset;
+        display: inline-block;
+        margin-left: .5em;
+        opacity: .16;
+
+        &:hover,
+        &:focus {
+          opacity: .5;
+        }
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--color); // TODO 900
+      border-bottom: solid 1px var(--color); // TODO 400
+
+      &:hover,
+      &:focus {
+        color: var(--accent-color);
+      }
+    }
+
+    // Summary of the chapter
+    summary {
+      margin-top: 1.25em;
+      margin-bottom: 1.25em;
+      font-size: 0.8em;
+      line-height: 2;
+    }
+
+    summary {
+
+      &::first-line {
+        font-variant: small-caps;
+      }
+    }
+
+    // Abstract for the document is the first summary
+    > h1 + summary {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      font-size: 1.2em;
+      line-height: (4 / 3);
+
+      // When using markdown, there's an additional <p> which adds ugly margins
+      // Remove top and bottom margin,
+      // taking into account possibility that there are multiple <p>'s
+      p:first-child { margin-top: 0; }
+      p:last-child { margin-bottom: 0; }
+    }
+
+    code {
+      font-size: .92em;
+    }
+
+    pre {
+      display: block;
+      box-sizing: border-box;
+      overflow-x: auto;
+
+      code {
+        line-height: 1.2;
+        display: inline;
+        background-color: transparent;
+        box-shadow: none;
+        border-radius: 0;
+      }
+    }
+
+    abbr {
+      text-decoration: none;
+      border-bottom: 1px dotted mix(black, white);
+      cursor: help;
+      position: relative;
+
+      &:after {
+        font-size: .72em;
+        line-height: 1.2;
+        content: attr(title);
+        position: absolute;
+        background-color: var(--color-primary);
+        color: var(--color-front);
+        padding: .66em;
+        left: -2em;
+        min-width: calc(100% + 4em);
+        width: 100%;
+        top: 2em;
+        transform: translateY(-.5em);
+        opacity: 0;
+        pointer-events: none;
+        transition: all .2s ease-out;
+        z-index: 99;
+        box-sizing: border-box;
+      }
+
+      &:focus,
+      &:hover {
+        &:after {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    figure {
+      display: table;
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      width: 100%;
+      text-align: center;
+
+      @media (min-width: 40rem) {
+        &.left {
+          width: auto;
+          text-align: left;
+          float: left;
+          margin-right: 1em;
+
+          @media (min-width: 60rem) {
+            margin-left: -3em;
+          }
+        }
+
+        &.right {
+          width: auto;
+          text-align: right;
+          float: right;
+          margin-left: 1em;
+          align-items: flex-end;
+
+          @media (min-width: 60rem) {
+            margin-right: -3em;
+          }
+        }
+      }
+
+      figcaption {
+        counter-increment: figureCounter;
+        margin-top: 1em;
+        font-size: .8em;
+        line-height: 2;
+        font-style: italic;
+        display: table-caption;
+        caption-side: bottom;
+
+        &:before {
+          content: "Figure " counter(figureCounter) ". ";
+          font-weight: bold;
+          font-style: normal;
+        }
+      }
+    }
+
+    dl {
+
+      dt {
+        font-weight: bold;
+      }
+
+      dd {
+        margin-bottom: 1.5em;
+      }
+    }
+
+    :target {
+      outline: none;
+
+      &:before {
+        content: "";
+        display: inline-block;
+        height: 4em;
+        margin-top: -4rem;
+      }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+
+      &:target:before {
+        display: block;
+      }
+    }
+
+    .references + dl {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+
+      div {
+        display: flex;
+
+        dt {
+          margin: 0;
+          padding: 0;
+          min-width: 10em;
+          margin-right: 1em;
+
+          a {
+            border-bottom: none;
+
+            &:hover,
+            &:focus {
+              border-bottom: solid 1px var(--color); // TODO 200
+              background-color: transparent;
+            }
+          }
+        }
+
+        dd {
+          margin: 0;
+          padding: 0;
+
+          button {
+            @include button-reset;
+
+            button {
+              width: 1em;
+              height: 1em;
+              line-height: 1em;
+              color: var(--color);
+
+              &:hover,
+              &:focus {
+                background-color: var(--accent-color); // TODO 50
+              }
+            }
+          }
+        }
+
+        dd + dd {
+          margin-left: .5em;
+        }
+      }
+    }
+  }
+
+  > footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: .66em;
+    line-height: 1;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    background-color: var(--color-status-bar);
+
+    dl, dd, dt {
+      margin: 0;
+      padding: 0;
+    }
+
+    dl {
+      display: flex;
+
+      dt {
+        margin-left: 1em;
+        font-weight: bold;
+      }
+
+      dd {
+        margin-left: .5em;
+      }
+    }
+  }
+}

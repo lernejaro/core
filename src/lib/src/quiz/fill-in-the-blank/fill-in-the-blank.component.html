@@ -1,0 +1,26 @@
+<lrn-card [header]="header">
+
+  <lrn-card-badge>
+    <lrn-icon [icon]="icon"></lrn-icon>
+  </lrn-card-badge>
+
+  <lrn-card-content class="wrapper">
+    <div class="content">
+      <form [id]="formId" (submit)="emitSubmit($event)">
+        <ng-content></ng-content>
+      </form>
+    </div>
+  </lrn-card-content>
+
+  <lrn-card-content *ngIf="feedbackStrings.length != 0">
+    <ul *ngFor="let string of feedbackStrings">
+      <li>{{ string }}</li>
+    </ul>
+  </lrn-card-content>
+
+  <lrn-card-footer>
+    <button lrnButton="flat" type="submit" [attr.form]="formId">Odgovori</button>
+    <!--<button [lrnButton]="'flat'" type="button" [attr.form]="formId">Pokaži tačan odgovor</button>-->
+  </lrn-card-footer>
+
+</lrn-card>

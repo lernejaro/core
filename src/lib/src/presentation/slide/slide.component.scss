@@ -1,0 +1,17 @@
+@import '../../global';
+@import 'slide-header.scss';
+@import 'slide-inner.scss';
+
+lrn-slide {
+  // TODO: Open a modal and after 2 slide changes it attaches inline display: none...
+  display: flex !important;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.columns {
+  height: 100%;
+  display: flex;
+}
+

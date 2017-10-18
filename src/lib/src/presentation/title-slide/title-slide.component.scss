@@ -1,0 +1,148 @@
+@import '../../global';
+
+$breakpoint: 60rem;
+
+$tan20: 0.36397023426;
+$tan70: 2.74747741945;
+
+$left-width: 66%;
+$right-width: 100% - $left-width;
+
+$line-margin: 48px;
+
+lrn-title-slide {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  font-size: 2em;
+  background-color: var(--color);
+
+  .background-picture {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: auto;
+    $x: $tan20 * 100vh;
+    width: calc(#{$right-width} + #{$x / 2});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    @include below($breakpoint) {
+      width: 100%;
+      height: 40vh;
+      bottom: 0;
+      top: auto;
+    }
+
+    .fade {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(to bottom, rgba(black, .8), transparent);
+      height: 100%;
+
+      @include below($breakpoint) {
+        background: linear-gradient(to right, rgba(black, .5), transparent);
+      }
+    }
+  }
+
+  .background-card {
+    position: absolute;
+    right: $right-width;
+    top: -100vh;
+    bottom: -100vh;
+    width: 200vw;
+    height: auto;
+    @include z-depth-24dp;
+    transform-origin: 100% 50%;
+    transform: rotate(20deg);
+    background-color: var(--color-back);
+
+    @include below($breakpoint) {
+      transform: rotate(95deg);
+      top: -60vh;
+    }
+  }
+
+  .content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+    color: var(--color-primary);
+
+    .title-and-author {
+      box-sizing: border-box;
+      height: auto;
+      width: $left-width;
+      top: $line-margin;
+      left: $line-margin;
+      bottom: $line-margin;
+      position: absolute;
+
+      @include below($breakpoint) {
+        box-sizing: border-box;
+        padding: 1rem 1.5rem;
+        width: 100%;
+        height: 60vh;
+        top: auto;
+        left: auto;
+        bottom: auto;
+      }
+
+      .title {
+        box-sizing: border-box;
+        font-weight: 300;
+        width: 80%;
+        height: 80%;
+        font-size: calc(4vw + 2em);
+        line-height: 1.1;
+
+        @include below($breakpoint) {
+          width: 100%;
+          padding-left: 1rem;
+        }
+
+        // Created dynamically by lrnFitText directive
+        span {
+          position: relative;
+
+          &:before {
+            content: '';
+            position: absolute;
+            width: 2vw;
+            top: 0;
+            bottom: 0;
+            left: -4vw;
+            height: 100%;
+            border-radius: 3pt;
+            background-color: var(--accent-color);
+          }
+        }
+
+        b, strong {
+          font-weight: 500;
+        }
+      }
+
+      .author {
+        position: absolute;
+        bottom: 0;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: var(--accent-color); // TODO 600
+
+        @include below($breakpoint) {
+          font-size: .8em;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<h1>Table of Contents</h1>
+
+<ol>
+  <li *ngFor="let entry of _tableOfContents"
+      [class.current]="currentSectionSlideIndex == entry.slideNumber"
+  >
+    <button (click)="navigateToSlide(entry.slideNumber)">
+      {{ entry.sectionName }}
+    </button>
+  </li>
+</ol>

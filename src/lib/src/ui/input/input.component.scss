@@ -1,0 +1,110 @@
+@import '../../global';
+
+$highlight-thickness: .25ex;
+$input-height: 2.5ex;
+$input-border-width: .1ex;
+$label-height: 3ex;
+
+:host {
+  display: inline-block;
+  width: 100%;
+}
+
+.wrapper {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding-bottom: $label-height * .6;
+}
+
+label {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+input {
+  outline: none;
+  border: none;
+  border-bottom: solid $input-border-width rgba(black, .25);
+  height: $input-height;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  width: 100%;
+  color: rgba(black, .86);
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  text-align: right;
+}
+
+input[type=number] + .underline {
+  right: 0;
+  left: auto;
+}
+
+input[type=number] ~ .label {
+  justify-content: flex-end;
+}
+
+.underline {
+  $thickness: $highlight-thickness;
+  display: block;
+  position: absolute;
+  height: $thickness;
+  left: 0;
+  right: auto;
+  width: 0;
+  bottom: $input-border-width - $thickness;
+  background-color: var(--color);
+  transition: all .2s ease-out;
+}
+
+.label {
+  width: 100%;
+  $height: $label-height;
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  font-style: italic;
+  color: rgba(black, .4);
+  font-size: .6em;
+  height: $height;
+  top: calc(#{$input-height} / .6 - #{$input-border-width});
+  transition: all .2s ease-out;
+  pointer-events: none;
+
+  span {
+    display: inline-block;
+  }
+}
+
+label.focus {
+
+  .underline {
+    width: 100%;
+  }
+
+  .label {
+    color: var(--color);
+  }
+
+}
+
+label.overlay-label {
+
+  .label {
+    height: $input-height;
+    top: -$input-border-width;
+    font-size: 1em;
+  }
+
+}

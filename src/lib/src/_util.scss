@@ -1,0 +1,54 @@
+@mixin force-width($width) {
+  min-width: $width;
+  width: $width;
+  max-width: $width;
+}
+
+@mixin force-height($height) {
+  min-height: $height;
+  height: $height;
+  max-height: $height;
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin force-square($size) {
+  @include force-width($size);
+  @include force-height($size);
+}
+
+@mixin background-image($width, $height: $width, $border-radius: null) {
+  width: $width;
+  height: $height;
+  background-size: cover;
+  background-position: center center;
+  @if ($border-radius != null) {
+    border-radius: $border-radius;
+  }
+}
+
+@mixin button-reset {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+@mixin below($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin above($width) {
+  @media screen and (min-width: $width + 1) {
+    @content;
+  }
+}

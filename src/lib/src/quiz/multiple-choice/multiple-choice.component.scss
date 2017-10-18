@@ -1,0 +1,23 @@
+@import '../../global';
+
+:host {
+  display: block;
+}
+
+.card-footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  > :first-child {
+    padding-left: .33em;
+  }
+
+  .fa-check {
+    color: var(--color-green);
+  }
+
+  .fa-times {
+    color: var(--color-red);
+  }
+}

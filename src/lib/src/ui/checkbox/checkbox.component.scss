@@ -1,0 +1,25 @@
+@import '../../global';
+
+:host {
+  display: inline-block;
+}
+
+input {
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+div {
+  display: inline-block;
+  width: .66em;
+  height: .66em;
+  box-shadow: 0 0 0 .06em var(--color) inset;
+}
+
+input:checked + div {
+  box-shadow: 0 0 0 .06em var(--color) inset, 0 0 0 .12em var(--color-front) inset;
+  background-color: var(--accent-color);
+}

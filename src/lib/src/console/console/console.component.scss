@@ -1,0 +1,41 @@
+@import '../../global';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 30rem;
+  overflow-y: scroll;
+  border-radius: 4px;
+  @include card-basic('light');
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  position: relative;
+}
+
+section {
+  font-family: monospace;
+  border-bottom: solid 1px rgba(black, .2);
+  padding: .5em 1em;
+  padding-left: 2.5em;
+  white-space: pre-wrap;
+}
+
+section:first-of-type {
+  border-top: solid 1px rgba(black, .2);
+}
+
+section[contenteditable] {
+  background-color: rgba(black, .02);
+}
+
+section:nth-of-type(even) {
+  font-weight: bold;
+}
+
+// Prompts have a character in front
+section:nth-of-type(odd):before {
+  content: '>';
+  display: inline-block;
+  width: 1.5em;
+  margin-left: -1.5em;
+}

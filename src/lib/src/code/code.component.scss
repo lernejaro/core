@@ -1,0 +1,47 @@
+@import '../global';
+
+code[class*=language-] {
+  color: var(--color-primary);
+
+  &.language-javascript {
+
+    .token {
+
+      &.keyword {
+        font-weight: bold;
+        color: var(--accent-color); // 400, .8 opacity TODO
+      }
+
+      &.string {
+        color: var(--color); // TODO 600 .8
+      }
+
+      &.operator {
+        opacity: .7;
+      }
+
+      &.comment {
+        color: material-color('green', '400');
+        font-style: italic;
+        font-size: .8em;
+      }
+    }
+  }
+
+  &.language-html {
+
+    .token.tag {
+      font-weight: bold;
+      color: var(--accent-color); // TODO 400 .8
+    }
+
+    > .token.tag > .token.attr-value {
+      font-style: italic;
+    }
+
+    > .token.attr-name, .token.attr-value {
+      color: var(--color); // TODO 600 .8
+      font-weight: normal;
+    }
+  }
+}

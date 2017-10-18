@@ -1,0 +1,11 @@
+<!--<ng-container *ngIf="type == 'radio-button'">-->
+  <!--<lrn-radio-button *ngFor="let option of options"-->
+                    <!--[name]="name"-->
+                    <!--[value]="option.value"-->
+                    <!--[currentValue]="value"-->
+                    <!--(currentValueChange)="onSelect(option.value)"-->
+  <!--&gt;-->
+    <!--{{option.label}}-->
+  <!--</lrn-radio-button>-->
+  <ng-content select="lrn-option"></ng-content>
+<!--</ng-container>-->

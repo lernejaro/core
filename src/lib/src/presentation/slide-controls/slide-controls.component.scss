@@ -1,0 +1,51 @@
+@import '../../global';
+
+:host {
+  z-index: 100;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  @include card-basic;
+  color: var(--color-primary);
+  font-size: .66em;
+
+  nav {
+    display: flex;
+    align-items: center;
+    padding: .66em;
+    box-sizing: border-box;
+
+    hr {
+      border: none;
+      display: flex;
+      height: 4ex;
+      width: 0;
+      margin: 0 .5em;
+      border-left: 1px solid var(--color-dividers);
+    }
+  }
+
+  .slide-index {
+    margin-left: 1em;
+    margin-right: 1em;
+    color: var(--color-primary);
+
+    .current {
+      font-weight: bold;
+      color: var(--accent-color); // TODO a700
+    }
+  }
+
+  button {
+    @include button-reset;
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    color: inherit;
+
+    &:focus,
+    &:hover {
+      background-color: var(--color-dividers);
+    }
+  }
+}

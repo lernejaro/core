@@ -1,0 +1,43 @@
+@import '../../global';
+
+:host {
+  padding: 2em;
+  display: block;
+  font-size: 1.4em;
+  background-color: var(--color-back);
+  color: var(--color-primary);
+
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+
+    li {
+      margin: 0;
+      color: var(--color-primary);
+
+      &.current {
+        color: var(--accent-color)
+      }
+
+      &:not(:last-child) {
+        border-bottom: solid 1px black;
+      }
+
+      button {
+        @include button-reset;
+        width: 100%;
+        text-align: left;
+        padding: 1ex;
+        cursor: pointer;
+        color: inherit;
+
+        &:hover, &:focus {
+          background-color: rgba(black, .1);
+        }
+      }
+    }
+  }
+}

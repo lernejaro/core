@@ -1,0 +1,57 @@
+<header>
+  <div class="icon red">
+    <i class="fa fa-flask"></i>
+  </div>
+  <div class="title-and-subtitle">
+    <div class="title red">{{notebookTitle}}</div>
+  </div>
+  <div class="flex-spacer"></div>
+  <div class="buttons">
+    <button (click)="openAsLatexDocument()"><i class="fa fa-file-text"></i></button>
+    <button (click)="print()"><i class="fa fa-print"></i></button>
+    <button (click)="modal.open(palettePicker)"><i class="fa fa-paint-brush"></i></button>
+    <button (click)="toggleTableOfContentVisibility()"><i class="fa fa-bars"></i></button>
+  </div>
+</header>
+
+<article [class]="'wrapper'" #article
+         [lang]="language"
+>
+  <div class="table-of-content" [class.hidden]="!isVisibleTableOfContent">
+    <lrn-table-of-content [tree]="tableOfContents"></lrn-table-of-content>
+  </div>
+
+  <ng-content></ng-content>
+
+  <!-- Automatically generated headings -->
+  <ng-container *ngIf="references && references.length > 0">
+    <h2 class="references">References</h2>
+    <dl>
+      <div *ngFor="let reference of references">
+        <dt><a [href]="reference.href">{{ reference.name }}</a></dt>
+        <dd *ngFor="let id of reference.ids; let index = index">
+          <button (click)="goToFragment(id)">[{{ index + 1 }}]</button>
+        </dd>
+      </div>
+    </dl>
+  </ng-container>
+
+  <!--<h2>Abbrevations</h2>-->
+</article>
+
+<footer [@footerTrigger]="visibleFooter ? 'show' : 'hide'">
+  <dl>
+    <dt>Word count</dt>
+    <dd>{{ wordCount }}</dd>
+
+    <dt>Time to read</dt>
+    <dd>
+      {{ estimatedReadingTimeMinutes }}
+      {{ estimatedReadingTimeMinutes == 1 ? 'minute' : 'minutes' }}
+    </dd>
+  </dl>
+</footer>
+
+<ng-template #palettePicker>
+  <lrn-palette-picker></lrn-palette-picker>
+</ng-template>

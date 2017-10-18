@@ -1,0 +1,11 @@
+@import '../../global';
+
+:host {
+  overflow-x: hidden;
+  z-index: 200;
+
+  .filled {
+    transition: all .33s ease;
+    background-color: var(--accent-color); // TODO a400
+  }
+}

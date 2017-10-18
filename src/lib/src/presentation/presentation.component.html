@@ -1,0 +1,26 @@
+<lrn-progress-bar [height]="'.5ex'" [total]="slideIdentifiers.length - 1"
+                  [current]="currentSlideIndex"></lrn-progress-bar>
+
+<lrn-title-slide *ngIf="currentSlideIdentifier.type == 'title'"
+                 [title]="title"
+                 [author]="author"
+></lrn-title-slide>
+
+<lrn-questions-slide *ngIf="currentSlideIdentifier.type == 'questions'"
+                     [email]="email"
+                     [author]="author"
+></lrn-questions-slide>
+
+<lrn-thank-you-slide *ngIf="currentSlideIdentifier.type == 'thank-you'"
+></lrn-thank-you-slide>
+
+<div #outlet></div>
+
+<lrn-slide-controls [currentSlide]="currentSlideIndex + 1"
+                    [totalNumberOfSlides]="slideIdentifiers.length"
+                    [tableOfContents]="tableOfContents"
+                    (last)="goToLastSlide()"
+                    (prev)="goToPrevious()"
+                    (next)="goToNext()"
+                    (first)="goToFirstSlide()"
+></lrn-slide-controls>

@@ -1,0 +1,17 @@
+lrn-card-header {
+  display: block;
+
+  .card-header-wrapper {
+    padding-bottom: .8rem;
+    display: flex;
+    justify-content: space-between;
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: 1em;
+      color: rgba(black, .7);
+      text-transform: uppercase;
+    }
+  }
+}

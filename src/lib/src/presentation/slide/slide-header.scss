@@ -1,0 +1,52 @@
+@import '../../global';
+
+.slide-header {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 1.2em;
+  @include z-depth(4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include force-height($slide-header-height);
+  background-color: var(--color);
+
+  .section {
+    color: var(--color-primary);
+  }
+
+  .title {
+    color: var(--color-secondary);
+  }
+
+  .title-and-subtitle {
+    display: flex;
+    align-items: baseline;
+
+    .section {
+      display: inline-block;
+      font-weight: 300;
+      font-size: 5em;
+    }
+
+    .title {
+      display: inline-block;
+      font-weight: 300;
+      font-size: 2.5em;
+      margin-left: 1em;
+      height: 2ex;
+    }
+  }
+
+  .logo {
+    @include square(6em);
+
+    .image {
+      // TODO mixin
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

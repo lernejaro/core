@@ -1,0 +1,65 @@
+@import '../global';
+@import '../imports';
+
+.footer {
+  display: flex;
+  align-items: center;
+  background-color: var(--color);
+
+  ul.navigation {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0 1em;
+    box-sizing: border-box;
+    color: var(--color-hint);
+
+    .slide-index {
+      color: var(--color-primary);
+
+      .current {
+        color: var(--accent-color); // TODO a700
+      }
+    }
+
+    button {
+      color: var(--color-hint);
+
+      &:focus,
+      &:hover {
+        // TODO Check the spec about hovering/focusing on icons
+        background-color: var(--color); // TODO 600
+      }
+
+    }
+
+    li {
+      padding: 0;
+      margin: 0 .6em;
+    }
+  }
+
+  .slide-index {
+    margin-left: 2em;
+    margin-right: 2em;
+
+    .current {
+      font-weight: bold;
+    }
+  }
+
+  // TODO Draw this out in a mixin ("flat badge-button"?), this is reusable
+  button {
+    width: 3em;
+    height: 3em;
+    // TODO Write a mixin for button reset
+    background-color: transparent;
+    outline: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+}

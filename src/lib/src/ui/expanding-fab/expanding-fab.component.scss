@@ -1,0 +1,59 @@
+@import '../../global';
+
+$color: material-color('blue-grey', '900');
+
+// TODO make these ems
+$size: 64px;
+$margin: 36px;
+$cog-icon-size: $size / 2;
+
+lrn-expanding-fab {
+  position: fixed;
+  bottom: $margin;
+  right: $margin;
+  color: var(--text-on-color); // hint
+
+  .visible {
+    color: $black; // TODO Make a mixin that will generate dark/light color based on background color
+    border-radius: $size / 2;
+    @include square($size);
+    @include z-depth-3dp;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    overflow: hidden;
+    background-color: var(--color); // a400
+
+    .icon {
+      @include force-square($size);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      span {
+        font-size: $cog-icon-size;
+      }
+    }
+
+    &.expanded {
+      width: auto;
+    }
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-wrap: none;
+    padding-left: 1.33em;
+
+    > * + * {
+      margin-left: .66em;
+    }
+
+    > button {
+      @include button-flat-badge;
+    }
+  }
+}

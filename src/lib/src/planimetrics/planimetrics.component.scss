@@ -1,0 +1,18 @@
+:host {
+  display: block;
+  position: relative;
+
+  .halo {
+    background-color: rgba(black, .2);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-10px, -10px);
+    pointer-events: none;
+  }
+
+  canvas {
+    background: white;
+  }
+}

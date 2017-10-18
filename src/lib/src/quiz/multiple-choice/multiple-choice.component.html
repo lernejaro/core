@@ -1,0 +1,39 @@
+<lrn-card>
+
+  <lrn-card-badge>
+    <lrn-icon [icon]="icon"></lrn-icon>
+  </lrn-card-badge>
+
+  <lrn-card-content class="question">
+    <ng-content select="lrn-question"></ng-content>
+  </lrn-card-content>
+
+  <lrn-card-content class="choices">
+    <form [id]="formId" (submit)="onSubmit($event)">
+      <lrn-radio-button-group (valueChange)="onChoicePick($event)" *ngIf="hasSingleCorrectAnswer">
+        <lrn-radio-button *ngFor="let choice of choices; let i = index" [value]="choice.value">
+          <ng-template [ngTemplateOutlet]="choice.template"></ng-template>
+        </lrn-radio-button>
+      </lrn-radio-button-group>
+      <lrn-checkbox-group (valueChange)="onChoicePick($event)" *ngIf="!hasSingleCorrectAnswer">
+        <lrn-checkbox *ngFor="let choice of choices; let i = index" [value]="choice.value">
+          <ng-template [ngTemplateOutlet]="choice.template"></ng-template>
+        </lrn-checkbox>
+      </lrn-checkbox-group>
+    </form>
+  </lrn-card-content>
+
+  <lrn-card-content *ngIf="feedbackString != null">
+    {{ feedbackString }}
+  </lrn-card-content>
+
+  <lrn-card-footer>
+    <div class="card-footer">
+      <div><i class="fa fa-{{ icon }}"></i></div>
+      <button [lrnButton]="'raised'" type="submit" [attr.form]="formId">Odgovori</button>
+    </div>
+  </lrn-card-footer>
+
+</lrn-card>
+
+

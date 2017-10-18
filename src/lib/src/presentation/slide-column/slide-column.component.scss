@@ -1,0 +1,32 @@
+lrn-slide-column {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  position: relative;
+  padding: 1.2em 1.6em;
+  box-sizing: border-box;
+  max-height: 100%;
+  overflow: auto;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+
+  &:not(:first-child)::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    background-color: rgba(black, .12);
+    left: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  &.vertical-center {
+    justify-content: center;
+  }
+}

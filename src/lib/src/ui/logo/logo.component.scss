@@ -1,0 +1,29 @@
+@import '../../global';
+
+:host {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .back-card {
+    fill: var(--color);
+  }
+
+  .front-card {
+    fill: var(--color-front);
+  }
+
+  svg {
+    height: 100%;
+  }
+
+  .mislete {
+    transform: scale(0.1) translate(250px, 290px);
+
+    path {
+      stroke: var(--accent-color); // TODO a400
+    }
+  }
+}

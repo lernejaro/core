@@ -1,0 +1,17 @@
+<header>
+  <div class="icon"><i class="fa fa-exclamation-triangle"></i></div>
+  <h1>{{ heading }}</h1>
+</header>
+
+<main>
+  <ng-content></ng-content>
+
+  <p>
+    You can suppress this warning by passing input
+    <code>{{ suppress }}</code> to the component which is causing this warning.
+  </p>
+</main>
+
+<footer>
+  Think this message is out of place? <a href="https://github.com/lazarljubenovic/lernejaro/issues">Join a discussion or start a new one on GitHub</a>.
+</footer>

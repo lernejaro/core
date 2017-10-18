@@ -1,0 +1,57 @@
+@import '../../global';
+
+:host {
+  font: inherit;
+  border: 0;
+  outline: 0;
+  padding: .6em .8em;
+  font-size: .8em;
+  line-height: 1;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all .2s ease-out;
+
+  &.raised {
+    @include z-depth-2dp;
+    background-color: var(--color);
+    color: var(--color-primary);
+
+    &:focus,
+    &:hover {
+      @include z-depth-4dp;
+    }
+  }
+
+  &.flat {
+    background-color: transparent;
+    color: var(--color-primary);
+
+    &:focus,
+    &:hover {
+      color: var(--color); // TODO 400
+    }
+  }
+
+  &.fab {
+    position: fixed;
+    $offset: 3em;
+    bottom: $offset;
+    right: $offset;
+    $size: 4.5rem;
+    width: $size;
+    height: $size;
+    border-radius: $size / 2;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i.fa {
+      display: inline-block;
+      font-size: 2em;
+    }
+  }
+}

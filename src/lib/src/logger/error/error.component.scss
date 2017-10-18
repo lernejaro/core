@@ -1,0 +1,41 @@
+@import '../../global';
+
+:host {
+  padding: 1.6em;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+header {
+  display: flex;
+  align-items: center;
+
+  .fa {
+    font-size: 3rem;
+    width: 4rem;
+    color: var(--color-red);
+    opacity: .8;
+  }
+
+  h1 {
+    display: block;
+    flex: 1;
+    margin: 0;
+    color: var(--color-red);
+  }
+}
+
+main {
+  padding-left: 4rem;
+}
+
+footer {
+  margin-top: 2rem;
+  padding-left: 4rem;
+  font-size: .66em;
+  text-align: right;
+  opacity: .87;
+}

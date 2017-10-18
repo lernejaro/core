@@ -1,0 +1,13 @@
+<div class="palette-picker">
+  <ul class="color-picker">
+    <li *ngFor="let color of colors"
+        [class]="color"
+        [class.selected]="color == palette.color"
+        (click)="selectColor(color)"
+    ></li>
+  </ul>
+  <ul class="theme-picker">
+    <li class="light" (click)="selectTheme('light')" [class.selected]="palette.theme == 'light'">
+    <li class="dark" (click)="selectTheme('dark')" [class.selected]="palette.theme == 'dark'">
+  </ul>
+</div>

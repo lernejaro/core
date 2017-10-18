@@ -1,0 +1,10 @@
+<label>
+  <input type="checkbox"
+         [name]="name"
+         [value]="value"
+         [ngModel]="currentValue"
+         (ngModelChange)="emitCurrentValueChange($event)"
+  >
+  <div></div>
+  <span><ng-content></ng-content></span>
+</label>
