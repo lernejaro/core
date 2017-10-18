@@ -1,0 +1,5 @@
+export {ConsoleModule} from './console.module'
+export {Interpreter} from './interpreter.interface'
+export {LispInterpreter} from './interpreters/lisp'
+export {JavaScriptInterpreter} from './interpreters/javascript'
+export {ConsoleComponent} from './console/console.component'

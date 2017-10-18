@@ -1,0 +1,5 @@
+export {KatexModule} from './katex.module'
+export {KatexComponent} from './katex.component'
+export {KatexService} from './katex.service'
+export {BMatrixPipe} from './pipes/matrix-b.pipe'
+export {VMatrixPipe} from './pipes/matrix-v.pipe'
