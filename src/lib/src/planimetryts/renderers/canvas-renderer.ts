@@ -2,10 +2,12 @@ import {Renderer} from './renderer'
 import {MaterialColor} from './color'
 import {
   Circle,
+  Coordinate,
   Ellipse,
   GeometryObject,
   Line,
   MaterialColor as MaterialColorEnum,
+  Offset,
   Point,
   Polygon,
   RectangularArea,
@@ -13,7 +15,6 @@ import {
 } from '../geometry-objects/everything'
 import {Subject} from 'rxjs/Subject'
 import {Matrix} from '../geometry-objects/matrix'
-import {Coordinate, Offset} from '../../../typings'
 
 function getCursorPosition(canvas, event): Coordinate {
   let rect = canvas.getBoundingClientRect()

@@ -98,7 +98,7 @@ function inlineStyle(content, urlResolver) {
     return 'styles: ['
       + urls
         .map(styleUrl => {
-          const styleFile = urlResolver(styleUrl);
+          const styleFile = urlResolver(styleUrl.replace(/scss$/, 'css'));
           const styleContent = fs.readFileSync(styleFile, 'utf-8');
           const shortenedStyle = styleContent
             .replace(/([\n\r]\s*)+/gm, ' ')

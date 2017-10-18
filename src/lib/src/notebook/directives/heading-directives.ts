@@ -8,15 +8,14 @@ import {
   Input,
   Renderer2,
 } from '@angular/core'
-import {ActivatedRoute, Router} from '@angular/router'
+import {ActivatedRoute} from '@angular/router'
 import {UniqueIdService} from '../../unique-id.service'
 
 @Injectable()
 export abstract class HDirective implements AfterContentInit {
   constructor(protected elementRef: ElementRef,
               protected renderer: Renderer2,
-              private route: ActivatedRoute,
-              private router: Router) {
+              private route: ActivatedRoute) {
   }
 
   public title: string
@@ -26,6 +25,10 @@ export abstract class HDirective implements AfterContentInit {
     this.title = nativeElement.textContent
 
     const id = this.title.replace(/ /g, '_')
+
+    if (this.route) {
+
+    }
 
     const url = this.route.snapshot.pathFromRoot
       .map(x => x.url)

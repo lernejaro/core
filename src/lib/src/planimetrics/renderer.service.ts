@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core'
 import {CanvasRenderer} from '../planimetryts/renderers/canvas-renderer'
 import {Subject} from 'rxjs'
-import {GeometryObject} from '../planimetryts/geometry-objects/everything'
-import {Coordinate, Offset} from '../../typings'
+import {Coordinate, GeometryObject, Offset} from '../planimetryts/geometry-objects/everything'
 
 @Injectable()
 export class RendererService {

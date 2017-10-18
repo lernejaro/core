@@ -30,7 +30,7 @@ import {
 import {LoggerService} from '../logger/logger.service'
 import {PaletteService} from '../ui/palette.service'
 import {animate, state, style, transition, trigger} from '@angular/animations'
-import {debounce, groupBy, map, sortBy} from 'lodash-es'
+import {groupBy, map, sortBy} from 'lodash-es'
 import {
   NoExternalResourcesWarningComponent,
   NotebookTitleWithoutContentErrorComponent,
@@ -179,11 +179,11 @@ export class NotebookComponent implements OnInit, AfterContentInit {
   public visibleFooter: boolean = true
 
   @HostListener('window:scroll')
-  public onWindowScroll = debounce(() => {
+  public onWindowScroll = () => {
     const scrollTop: number = window.pageYOffset || document.documentElement.scrollTop
     this.visibleFooter = scrollTop <= this.lastScrollTop
     this.lastScrollTop = scrollTop
-  }, 300)
+  }
 
   public wordCount: number
   public estimatedReadingTimeMinutes: number

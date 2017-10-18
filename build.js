@@ -63,21 +63,55 @@ return Promise.resolve()
         // the window object.
         // See https://github.com/rollup/rollup/wiki/JavaScript-API#globals for more.
         '@angular/core': 'ng.core',
+        '@angular/common': 'ng.common',
+        '@angular/forms': 'ng.forms',
+        '@angular/router': 'ng.router',
         '@angular/animations': 'ng.animations',
         'rxjs/Observable': 'Rx',
         'rxjs/Subject': 'Rx',
+        'rxjs/add/operator/distinctUntilChanged': 'Rx.Observable.prototype',
+        'rxjs/add/operator/scan': 'Rx.Observable.prototype',
+        'rxjs/add/operator/withLatestFrom': 'Rx.Observable.prototype',
+        'rxjs/add/observable.merge': 'Rx.Observable',
+        'rxjs/add/observable/of': 'Rx.Observable',
+        'rxjs/add/observable/throw': 'Rx.Observable',
+        'rxjs/add/observable/empty': 'Rx.Observable',
+        'rxjs/add/operator/map': 'Rx.Observable.prototype',
+        'rxjs/add/operator/filter': 'Rx.Observable.prototype',
+        'rxjs/add/operator/do': 'Rx.Observable.prototype',
+        'rxjs/add/operator/exhaustMap': 'Rx.Observable.prototype',
+        'rxjs/add/operator/catch': 'Rx.Observable.prototype',
+        'rxjs/add/operator/finally': 'Rx.Observable.prototype',
+        'rxjs/add/operator/take': 'Rx.Observable.prototype',
       },
       external: [
         // List of dependencies
         // See https://github.com/rollup/rollup/wiki/JavaScript-API#external for more.
         '@angular/core',
+        '@angular/common',
+        '@angular/forms',
+        '@angular/router',
         '@angular/animations',
         'rxjs/Observable',
         'rxjs/Subject',
+        'rxjs/add/observable/of',
+        'rxjs/add/observable/throw',
+        'rxjs/add/observable/empty',
+        'rxjs/add/operator/map',
+        'rxjs/add/operator/filter',
+        'rxjs/add/operator/do',
+        'rxjs/add/operator/exhaustMap',
+        'rxjs/add/operator/catch',
+        'rxjs/add/operator/finally',
+        'rxjs/add/operator/take',
       ],
       plugins: [
         commonjs({
-          include: ['node_modules/rxjs/**'],
+          include: [
+            'node_modules/rxjs/**',
+            'node_modules/prismjs/**',
+            'node_modules/chroma-js/**',
+          ],
           namedExports: {
             'node_modules/prismjs/prism.js': ['highlightElement'],
             'node_modules/chroma-js/chroma.js': ['css'],
@@ -118,10 +152,10 @@ return Promise.resolve()
     });
 
     const allBundles = [
-      umdConfig,
+      // umdConfig,
       // minifiedUmdConfig,
       fesm5config,
-      fesm2015config,
+      // fesm2015config,
     ].map(cfg => {
       // console.log('cfg', cfg);
       return rollup.rollup(cfg).then(bundle => {
@@ -179,5 +213,7 @@ function compileSassFiles() {
     '--output-style', 'compressed',
     '--source-map', true,
     '--source-map-contents',
-  ]);
+  ]).then(result => {
+    return result
+  });
 }

@@ -8,7 +8,6 @@ import {
   radianToDegree,
 } from '../util'
 import {Matrix} from './matrix'
-import {Coordinate} from '../../../typings'
 
 function ViewData() {
   return function (target: GeometryObject, key: string) {
@@ -18,6 +17,16 @@ function ViewData() {
     }
     targetAny.$$viewData.push(key)
   }
+}
+
+export interface Coordinate {
+  x: number
+  y: number
+}
+
+export interface Offset {
+  dx: number
+  dy: number
 }
 
 export enum MaterialColor {

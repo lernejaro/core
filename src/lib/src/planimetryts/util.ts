@@ -1,4 +1,4 @@
-import {Coordinate} from '../../typings'
+import {Coordinate} from './geometry-objects/everything'
 
 export function cartesianToPolar(x: number, y: number): { r: number, φ: number } {
   const r = Math.sqrt(x * x + y * y)

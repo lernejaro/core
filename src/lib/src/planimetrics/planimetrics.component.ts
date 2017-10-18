@@ -17,9 +17,13 @@ import {RendererService} from './renderer.service'
 import {areEqualFloats} from '../planimetryts/util'
 import {AxisConfiguration} from '../planimetryts/geometry-objects/macros/axis.interface'
 import {Axis} from '../planimetryts/geometry-objects/macros/axis'
-import {GeometryObject, Point} from '../planimetryts/geometry-objects/everything'
+import {
+  Coordinate,
+  GeometryObject,
+  Offset,
+  Point,
+} from '../planimetryts/geometry-objects/everything'
 import {Matrix} from '../planimetryts/geometry-objects/matrix'
-import {Coordinate, Offset} from '../../typings'
 
 export interface EvaluateFunctionArgumentObject {
   interactivePoints: Point[]

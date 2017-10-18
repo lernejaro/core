@@ -1,15 +1,63 @@
-export * from './lernejaro'
+export {LernejaroModule} from './lernejaro'
 
-export * from './code'
-export * from './console'
-export * from './katex'
-export * from './latex'
-export * from './layout'
-export * from './logger'
-export * from './markdown'
-export * from './notebook'
-export * from './planimetrics'
-export * from './planimetryts'
-export * from './presentation'
-export * from './quiz'
-export * from './ui'
+export {CodeComponent, CodeModule} from './code'
+
+export {
+  JavaScriptInterpreter,
+  LispInterpreter,
+  ConsoleComponent,
+  Interpreter,
+  ConsoleModule,
+} from './console'
+
+export {VMatrixPipe, BMatrixPipe, KatexService, KatexModule, KatexComponent} from './katex'
+
+export {LatexService, LatexModule, LatexComponent} from './latex'
+
+export {
+  VerticalComponent,
+  MaximizeComponent,
+  HorizontalComponent,
+  CenterComponent,
+  FullScreenComponent,
+  LayoutModule,
+} from './layout'
+
+export {WarningComponent, ErrorComponent, LoggerService, LoggerModule} from './logger'
+
+export {MarkdownComponent, MarkdownParserService, MarkdownModule} from './markdown'
+
+export {NotebookComponent, NotebookModule} from './notebook'
+
+export {RendererService, PlanimetricsModule, PlanimetricsComponent} from './planimetrics'
+
+export {
+  GeometryObject,
+  Polygon,
+  RectangularArea,
+  Segment,
+  Circle,
+  EllipseGeneralForm,
+  Coordinate,
+  Point,
+  Ellipse,
+  MaterialColor,
+  Line,
+  Angle,
+  AngleDecoration,
+  Offset,
+  Semiplane,
+  Triangle,
+} from './planimetryts'
+
+export {PresentationComponent, PresentationModule} from './presentation'
+
+export {
+  QuizModule,
+  BlankComponent,
+  FillInTheBlankComponent,
+  AnswerInfoFeedback,
+  AnswerInfo,
+} from './quiz'
+
+export {UiModule} from './ui'

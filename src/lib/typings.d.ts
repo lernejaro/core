@@ -4,16 +4,6 @@
 
 ///<reference path="Path2D.d.ts"/>
 
-export interface Coordinate {
-  x: number
-  y: number
-}
-
-export interface Offset {
-  dx: number
-  dy: number
-}
-
 export declare module 'katex' {
 
   interface KatexOptions {
